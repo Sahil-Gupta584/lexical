@@ -15,6 +15,9 @@ import { LinkNode } from "@lexical/link";
 import { useEffect } from "react";
 import ImagesPlugin from "./plugins/imagePlugin";
 import { ImageNode } from "./nodes/imageNode";
+import { $generateHtmlFromNodes } from "@lexical/html";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import OutputPlugin from "./plugins/outputPlugin";
 function App() {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -43,10 +46,11 @@ function App() {
 
   return (
     <>
-      <div className="bg-gray-300 min-h-screen min-w-screen flex items-center justify-center">
+      <div className="bg-gray-200 min-h-screen min-w-screen flex items-center justify-center gap-4">
         <LexicalComposer initialConfig={editorConfig}>
           <div className=" min-h-[50vh] w-[600px] bg-white rounded-lg shadow-lg ">
             <div className="editor-inner">
+              <OutputPlugin />
               <ToolbarPlugin />
               <HistoryPlugin />
               <AutoFocusPlugin />
@@ -71,6 +75,7 @@ function App() {
             </div>
           </div>
         </LexicalComposer>
+        <div id="output " className="max-w-[50%] border-2 p-4"></div>
       </div>
     </>
   );

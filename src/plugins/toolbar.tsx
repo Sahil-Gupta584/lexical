@@ -242,6 +242,8 @@ export default function ToolbarPlugin() {
             altText: "Image",
             captionsEnabled: true,
             showCaption: true,
+            width: 300,
+            height: 200,
             // caption: "Image Caption",
           });
         }}
